@@ -17,10 +17,11 @@ namespace Carsbuliding
         {
             InitializeComponent();
         }
-        public string conniction = "Data Source = DESKTOP-L3S7CS9\\SQLEXPRESS ; initial catalog = CarsBuilding ; integrated security=true";
+        public string conniction = "Data Source = DESKTOP-O9932VP\\SQLEXPRESS ; initial catalog = CarsBuilding ; integrated security=true";
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            chooseTXT.Text = dataGridView1.DataSource.ToString();
+           
+            chooseTXT.Text = dataGridView1.CurrentCell.Value.ToString();
         }
         private void viewB()
         {
@@ -53,16 +54,17 @@ namespace Carsbuliding
             viewB();
         }
 
-        private void deleteB(string id)
+        private void deleteB(string BN)
         {
             SqlConnection sqlcon = new SqlConnection(conniction);
             sqlcon.Open();
             SqlCommand cmd = new SqlCommand("deleteProB", sqlcon);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@id", SqlDbType.VarChar,50).Value = id;
-            cmd.ExecuteNonQuery(); 
-            MessageBox.Show("deleted");
+            cmd.Parameters.Add("@Bname", SqlDbType.VarChar,50).Value = BN;
+            cmd.ExecuteNonQuery();
             sqlcon.Close();
+            MessageBox.Show("deleted");
+            
         }
     }
 }

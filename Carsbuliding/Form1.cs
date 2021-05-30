@@ -17,7 +17,7 @@ namespace Carsbuliding
         {
             InitializeComponent();
         }
-        public string conniction = "Data Source = DESKTOP-L3S7CS9\\SQLEXPRESS ; initial catalog = CarsBuilding ; integrated security=true";
+        public string conniction = "Data Source = DESKTOP-O9932VP\\SQLEXPRESS ; initial catalog = CarsBuilding ; integrated security=true";
         private void BuildingFRM_Load(object sender, EventArgs e)
         {
 
